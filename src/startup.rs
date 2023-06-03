@@ -4,7 +4,7 @@ use crate::models::coin_pairs::CoinPair;
 use crate::ws::binance_ws;
 use bson::doc;
 use futures::executor::block_on;
-use redis::{Commands,self};
+use redis::{self, Commands};
 use std::sync::{Arc, Mutex};
 pub async fn start_price_agg() -> Result<(), std::io::Error> {
     let redis_client: Arc<Mutex<redis::Connection>> = Arc::new(Mutex::new(connect_redis()));

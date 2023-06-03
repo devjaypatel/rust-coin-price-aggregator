@@ -11,7 +11,7 @@ use crate::models::trade_history::TradeEventResponse;
 pub async fn connect_binance_socket<'a>(
     coin_code: &'a String,
     pair_name: &'a String,
-    redis_client: &Mutex<redis::Connection>
+    redis_client: &Mutex<redis::Connection>,
 ) -> Result<(), std::io::Error> {
     let connect_addr = format!(
         "{}/stream?streams={}@trade",
@@ -46,7 +46,9 @@ pub async fn connect_binance_socket<'a>(
                             parsed = m;
                             // println!("{:?}", parsed.data);
 
-                            let _: () = redis_client.lock().unwrap()
+                            let _: () = redis_client
+                                .lock()
+                                .unwrap()
                                 .hset(
                                     "coin_price",
                                     coin_code,
