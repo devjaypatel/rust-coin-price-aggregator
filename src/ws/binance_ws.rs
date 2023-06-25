@@ -27,7 +27,7 @@ pub async fn connect_binance_socket<'a>(
     println!("connecting ws {url} server");
     let (ws_stream, _) = connect_async(url).await.expect("Failed to connect");
 
-    println!("Connected to the server");
+    println!("Connected to {coin_code} coin websocket ");
 
     let (write, read) = ws_stream.split();
 
