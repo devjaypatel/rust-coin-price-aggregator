@@ -42,3 +42,10 @@ pub struct TradeEventResponse {
 pub struct AllCoinPrice {
     pub data: HashMap<String, TradeHistory>,
 }
+
+#[allow(non_snake_case)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
+pub struct CoinPrice {
+    p: f64, //trade price
+    T: i128, // event time
+}

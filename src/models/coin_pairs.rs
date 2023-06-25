@@ -9,6 +9,11 @@ pub struct CoinPair {
     pub quoteAsset: String,
 }
 
+#[derive(Clone, Debug, Deserialize, Serialize)]
+pub struct CoinNameQuery {
+    pub coin_name: Option<String>
+}
+
 // {
 //     "e": "trade",     // Event type
 //     "E": 123456789,   // Event time

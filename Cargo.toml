@@ -28,3 +28,4 @@ mongodb = "2.5.0"
 bson = "2.6.1"
 
 lazy_static = "1.4.0"
+actix-web = "4"
